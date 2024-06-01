@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Inscription</h1>
+        <div class="container form-container">
+            <form id="ageForm" class="w-50">
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Date de naissance</label>
+                    <input type="date" class="form-control" id="birthDate" name="birthDate" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Soumettre</button>
+            </form>
+        </div>
+    
+        <script>
+            $(document).ready(function() {
+                $('#ageForm').on('submit', function(e) {
+                    e.preventDefault();
+                    
+                    var birthDate = new Date($('#birthDate').val());
+                    var today = new Date();
+                    var age = today.getFullYear() - birthDate.getFullYear();
+                    var monthDiff = today.getMonth() - birthDate.getMonth();
+    
+                    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                        age--;
+                    }
+    
+                    if (age >= 18) {
+                        alert('Vous êtes majeur. Formulaire soumis avec succès!');
+                        // Ici, vous pouvez soumettre le formulaire via AJAX ou faire autre chose
+                    } else {
+                        alert('Vous devez être majeur pour soumettre ce formulaire.');
+                    }
+                });
+            });
+        </script>
+
+        </form>
+    </div>
+</body>
+</html>
