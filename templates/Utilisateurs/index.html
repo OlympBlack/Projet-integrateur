@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoulQuest</title>
     <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.min-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap-icons.css' %}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
@@ -108,8 +108,7 @@ margin-right: 100px;
 
 
 </style>
-<script src="Assets/js/bootstrap.js"></script>
-<script src="Assets/js/bootstrap.min.js"></script>
+
 </head>
 <body>
   
@@ -123,7 +122,7 @@ margin-right: 100px;
              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                         <a class="btn custum-signup-btn me-4" href="SoulQuest/template.html">S'inscrire</a>
+                         <a class="btn custum-signup-btn me-4" href="#">S'inscrire</a>
                       </li>
                     <li class="nav-item">
                       <a class="btn custum-login-btn" href="#login">Se connecter</a>
@@ -152,7 +151,7 @@ margin-right: 100px;
           <p>DE L'AME SOEUR ?</p>
         </h1>
     </div>
-    <img src="{% static 'Utilisateurs/couple_vieux.jpeg' %}" class="vieux" width="800px" height="auto" >
+    <img src="{% static 'Utilisateurs/image/couple_vieux.jpeg' %}" class="vieux" width="800px" height="auto" >
  </div>
  
   <div class="P2" >
@@ -175,8 +174,8 @@ margin-right: 100px;
     </h1>
   </div>
 
-  <script src="{% static 'Utilisateurs/js/bootstrap.js}"></script>
-  <script src="{% static 'Utilisateurs/js/bootstrap.min.js}"></script>
+  <script src="{% static 'Utilisateurs/js/bootstrap.js' %}"></script>
+  <script src="{% static 'Utilisateurs/js/bootstrap.min.js' %}"></script>
 
 </body>   
 </html>
