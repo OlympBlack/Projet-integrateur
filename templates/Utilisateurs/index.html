@@ -1,15 +1,20 @@
+
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="stylesheet" href="Access/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="Access/css/bootstrap.css">
-    <link rel="stylesheet" href="Access/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap-icons.css'%}">
+
     <style>
         body{
-            background-image: url("Access/image/couple9.jpg");
+            background-image: url("{% static 'Utilisateurs/image/couple9.jpg'%}" );
             background-size: cover;
         }
         #Form1{
