@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Access/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="Access/css/bootstrap.css">
+    <link rel="stylesheet" href="Access/css/bootstrap.min.css">
+    <style>
+        .question {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    body{
+        color:wheat;
+        background-color: #32174D;
+    }
+
+    #Bas{
+        padding-left: 800px;
+    }
+    #affichage{
+        padding-left: 800px;
+    }
+    option{
+        color: #32174D;
+    }
+    .btn{
+      color: #32174D;
+      background-color: wheat;
+    }
+    .progress-bar-custum{
+      background-color: wheat;
+    }
+    </style>
+</head>
+<body>
+    <div class="container mt-5" id="Formulaire">
+        <h2>Formulaire de profil</h2>
+        <div id="progress" class="progress">
+          <div id="progress-bar" class="progress-bar-custum" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div>
+        <form id="profileForm">
+          <div class="question active" id="question1">
+            <div class="form-group">
+              <label for="sexe">Sexe :</label>
+              <select class="form-control" id="sexe">
+                <option selected disabled>Choisir votre sexe</option>
+                <option>Homme</option>
+                <option>Femme</option>
+                <option>Non-binaire</option>
+                <option>Autre</option>
+              </select>
+            </div>
+          </div>
+          <div class="question" id="question2">
+            <div class="form-group">
+              <label for="orientation">Orientation sexuelle :</label>
+              <select class="form-control" id="orientation">
+                <option selected disabled>Choisir votre orientation sexuelle</option>
+                <option>Homme</option>
+                <option>Femme</option>
+                <option>Les deux</option>
+              </select>
+            </div>
+          </div>
+          <div class="question" id="question3">
+            <div class="form-group">
+              <label for="age_preference">Préférence d'âge du partenaire :</label>
+              <select class="form-control" id="age_preference">
+                <option selected disabled>Choisir votre préférence d'âge</option>
+                <option>Plus âgé(e)</option>
+                <option>Plus jeune</option>
+                <option>Peu importe</option>
+              </select>
+            </div>
+          </div>
+          <div class="question" id="question4">
+             <div class="form-group">
+                 <label for="passions">Passions :</label>
+                 <div id="passions">
+                     <input type="checkbox" id="sport" name="passions" value="Sport">
+                     <label for="sport">Sport</label><br>
+                     <input type="checkbox" id="art" name="passions" value="Art">
+                     <label for="art">Art</label><br>
+                     <input type="checkbox" id="lecture" name="passions" value="Lecture">
+                     <label for="lecture">Lecture</label><br>
+                     <input type="checkbox" id="voyage" name="passions" value="Voyage">
+                     <label for="voyage">Voyage</label><br>
+                     <input type="checkbox" id="cuisine" name="passions" value="Cuisine">
+                     <label for="cuisine">Cuisine</label><br>
+                     <input type="checkbox" id="musique" name="passions" value="Musique">
+                     <label for="musique">Musique</label><br>
+                     <input type="checkbox" id="Cinema" name="passions" value="Cinema">
+                     <label for="Cinema">Cinema</label><br>
+                     <input type="checkbox" id="Chill" name="passions" value="Chill">
+                     <label for="Chill">Chill</label><br>
+                     <input type="checkbox" id="Science" name="passions" value="Science">
+                     <label for="Science">Science et Technologies</label><br>
+                 </div>
+             </div>
+         </div>
+          
+          <div class="form-group form-check" id="affichage">
+             <input type="checkbox" class="form-check-input" id="display_answers">
+             <label class="form-check-label" for="display_answers">Afficher ces réponses sur mon profil</label>
+          </div>
+          <div id="Bas">
+             <button type="button" class="btn btn-custum" id="prevBtn" onclick="prevQuestion()">Précédent</button>
+             <button type="button" class="btn btn-custum" id="nextBtn" onclick="nextQuestion()">Suivant</button>
+             <button type="submit" class="btn btn-custum" id="submitBtn" style="display: none;">Soumettre</button>
+          </div>
+        </form>
+      </div>
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script>
+        var currentQuestion = 1;
+        var totalQuestions = document.querySelectorAll('.question').length;
+      
+        function nextQuestion() {
+          var currentSelect = document.getElementById('question' + currentQuestion).querySelector('select');
+          if (currentSelect.value === "") {
+            alert("Veuillez sélectionner une réponse avant de passer à la question suivante.");
+            return;
+          }
+          document.getElementById('question' + currentQuestion).classList.remove('active');
+          currentQuestion++;
+          updateProgress();
+        }
+      
+        function prevQuestion() {
+          if (currentQuestion === 1) return;
+          document.getElementById('question' + currentQuestion).classList.remove('active');
+          currentQuestion--;
+          updateProgress();
+        }
+      
+        function updateProgress() {
+          var progress = (currentQuestion - 1) / totalQuestions * 100;
+          document.getElementById('progress-bar').style.width = progress + "%";
+          document.getElementById('progress-bar').setAttribute('aria-valuenow', progress);
+          document.getElementById('progress-bar').innerText = Math.round(progress) + "%";
+          document.getElementById('question' + currentQuestion).classList.add('active');
+      
+          if (currentQuestion === 1) {
+            document.getElementById('prevBtn').style.display = "none";
+          } else {
+            document.getElementById('prevBtn').style.display = "inline-block";
+          }
+      
+          if (currentQuestion === totalQuestions) {
+            document.getElementById('nextBtn').style.display = "none";
+            document.getElementById('submitBtn').style.display = "inline-block";
+          } else {
+            document.getElementById('nextBtn').style.display = "inline-block";
+            document.getElementById('submitBtn').style.display = "none";
+          }
+      
+          var questions = document.querySelectorAll('.question');
+          questions.forEach(function(question) {
+            if (question.id !== 'question' + currentQuestion) {
+              question.classList.remove('active');
+            }
+          });
+        }
+      
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          // Soumettez le formulaire ici ou effectuez d'autres actions
+          alert("Formulaire soumis avec succès !");
+        });
+      
+        updateProgress();
+      </script>
+      </body>
+</body>
+</html>

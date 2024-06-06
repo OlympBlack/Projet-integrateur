@@ -11,6 +11,7 @@
         body{
             background-image: url("Access/image/couple9.jpg");
             background-size: cover;
+            color: #32174D;
         }
         #Form1{
             padding-top: 250px;
@@ -21,6 +22,22 @@
         #Form2{
             padding-top: 250px;
         }
+      .btn {
+        color: wheat;
+        background-color:#32174D; 
+        border-color: #32174D;
+      }
+      .btn:hover{
+        color: wheat;
+        background-color:#32174D;
+      }
+      .btn:active{
+        color: wheat;
+        background-color:#32174D;
+      }
+      .card{
+        border-color: #32174D;
+      }
     </style>
 </head>
 <body>
@@ -54,7 +71,7 @@
     <div class="container mt-5 hidden" id="Form2">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card border-primary">
+                <div class="card border-custum">
                     <div class="card-header bg-customize text-black">SOULQUEST</div>
                     <div class="card-body">
                         <form id="secondForm">
@@ -73,7 +90,7 @@
                                     Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.
                                 </small>
                             </div>
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            <button type="submit" class="btn btn-custum">Enrégistrer</button>
                         </form>
                     </div>
                 </div>
@@ -106,5 +123,31 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form1 = document.getElementById("registrationForm");
+        var form2 = document.getElementById("Form2");
+
+        form1.addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("Form1").style.display = "none";
+            form2.classList.remove("hidden");
+        });
+
+        var secondForm = document.getElementById("secondForm");
+        secondForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var password = document.getElementById("password").value;
+            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+            if (!passwordPattern.test(password)) {
+                alert("Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.");
+                return;
+            }
+            // Rediriger l'utilisateur vers une nouvelle page
+            window.location.href = "formulaire2.html";
+        });
+    });
+</script>
+
 </body>
 </html>
