@@ -22,22 +22,22 @@
         #Form2{
             padding-top: 250px;
         }
-      .btn {
-        color: wheat;
-        background-color:#32174D; 
-        border-color: #32174D;
-      }
-      .btn:hover{
-        color: wheat;
-        background-color:#32174D;
-      }
-      .btn:active{
-        color: wheat;
-        background-color:#32174D;
-      }
-      .card{
-        border-color: #32174D;
-      }
+        .btn {
+            color: wheat;
+            background-color:#32174D; 
+            border-color: #32174D;
+        }
+        .btn:hover{
+            color: wheat;
+            background-color:#32174D;
+        }
+        .btn:active{
+            color: wheat;
+            background-color:#32174D;
+        }
+        .card{
+            border-color: #32174D;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +60,10 @@
                                 <label for="age">Âge</label>
                                 <input type="number" class="form-control" id="age" name="age" required>
                                 <small id="ageHelp" class="form-text text-muted">Vous devez avoir 18 ans ou plus.</small>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="acceptConditions" required>
+                                <label class="form-check-label" for="acceptConditions">J'accepte les <a href="conditions_utilisation.html" target="_blank">conditions d'utilisation</a></label>
                             </div>
                             <button type="submit" class="btn btn-primary">Suivant</button>
                         </form>
@@ -118,36 +122,11 @@
                     alert("Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.");
                     return;
                 }
-                alert("Formulaire soumis avec succès !");
-                // Vous pouvez ajouter ici le code pour soumettre le formulaire ou d'autres actions.
+                // Rediriger l'utilisateur vers une nouvelle page
+                window.location.href = "formulaire2.html";
             });
         });
     </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var form1 = document.getElementById("registrationForm");
-        var form2 = document.getElementById("Form2");
-
-        form1.addEventListener("submit", function(event) {
-            event.preventDefault();
-            document.getElementById("Form1").style.display = "none";
-            form2.classList.remove("hidden");
-        });
-
-        var secondForm = document.getElementById("secondForm");
-        secondForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            var password = document.getElementById("password").value;
-            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-            if (!passwordPattern.test(password)) {
-                alert("Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.");
-                return;
-            }
-            // Rediriger l'utilisateur vers une nouvelle page
-            window.location.href = "formulaire2.html";
-        });
-    });
-</script>
 
 </body>
 </html>
