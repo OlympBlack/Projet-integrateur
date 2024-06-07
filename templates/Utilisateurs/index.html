@@ -1,115 +1,219 @@
+{% load static %}<
+<!DOCTYPE HTML>
 
-<!DOCTYPE html>
+<html lang="fr=fr">
 
-{% load static %}
-
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'Utilisateurs/css/bootstrap-icons.css'%}">
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>SoulQuest</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="assets/images/fav-icon/icon.png">
+	<!-- bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" media="all">
+	<!-- carousel CSS -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css" media="all">
+	<!-- animate CSS -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" media="all">
+	<!-- animated-text CSS -->
+	<link rel="stylesheet" href="{% static 'css/meanmenu.min.css ' %}" type="text/css" media="all">
+	<link rel="stylesheet" href="{% static 'bootstrap-icons.css ' %}" type="text/css" media="all">
+	<!-- Main Style CSS -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">  
+	<!-- responsive CSS -->
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css" media="all">
+	<!-- modernizr js -->
+	           <style>
+				.header-area a{
+					text-decoration: none;
+					color: red;
+				}
+			
+				.active{
+					color: hsla(334, 74%, 25%, 0.15);
+				}
+			   
+			   </style>
+			
 
-    <style>
-        body{
-            background-image: url("{% static 'Utilisateurs/image/couple9.jpg'%}" );
-            background-size: cover;
-        }
-        #Form1{
-            padding-top: 250px;
-        }
-        .hidden {
-            display: none;
-        }
-        #Form2{
-            padding-top: 250px;
-        }
-    </style>
+    
+
 </head>
+
 <body>
-    <div class="container mt-5 " id="Form1">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card border-primary">
-                    <div class="card-header bg-customize text-black">SOULQUEST</div>
-                    <div class="card-body">
-                        <form id="registrationForm">
-                            <div class="form-group">
-                                <label for="nom">Nom</label>
-                                <input type="text" class="form-control" id="nom" name="nom" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="prenom">Prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="prenom" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="age">Âge</label>
-                                <input type="number" class="form-control" id="age" name="age" required>
-                                <small id="ageHelp" class="form-text text-muted">Vous devez avoir 18 ans ou plus.</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Suivant</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container mt-5 hidden" id="Form2">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card border-primary">
-                    <div class="card-header bg-customize text-black">SOULQUEST</div>
-                    <div class="card-body">
-                        <form id="secondForm">
-                            <div class="form-group">
-                                <label for="username">Nom d'utilisateur</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Mot de passe</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                                <small id="passwordHelp" class="form-text text-muted">
-                                    Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.
-                                </small>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var form1 = document.getElementById("registrationForm");
-            var form2 = document.getElementById("Form2");
 
-            form1.addEventListener("submit", function(event) {
-                event.preventDefault();
-                document.getElementById("Form1").style.display = "none";
-                form2.classList.remove("hidden");
-            });
 
-            var secondForm = document.getElementById("secondForm");
-            secondForm.addEventListener("submit", function(event) {
-                event.preventDefault();
-                var password = document.getElementById("password").value;
-                var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-                if (!passwordPattern.test(password)) {
-                    alert("Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre.");
-                    return;
-                }
-                alert("Formulaire soumis avec succès !");
-                // Vous pouvez ajouter ici le code pour soumettre le formulaire ou d'autres actions.
-            });
-        });
-    </script>
+	<!-- loder ---->
+	<div class="loader-wrapper">
+		<div class="loader"></div>
+		<div class="loder-section left-section"></div>
+		<div class="loder-section right-section"></div>
+	</div>
+
+
+
+	
+	
+	<!-- Start nav  -->
+	<section id="sticky" class="header-area  text-white" style="margin-top: -30px; color: red;">
+		<div class="container">
+			<div class="row justify-content-between" style="height: 30px;">
+				<div class="col-lg-2">
+					<div class="header-bottom-logo">
+						<div class="main-logo">
+							<a class="header-logo1" href="index.html"><img src="./assets/images/logo/logo GFT.png" alt=""></a><span style="font-size: 25px; font-weight: bold; color: red;">SOULQUEST</span>
+							<!--<a class="header-logo2 d-none" href="index.html"><img src="./assets/images/logo/header-logo2.png" alt=""></a>-->
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="finweb-menu d-flex justify-content-end">
+						<nav>
+							<ul class="d-flex">
+								<li><a class="active" href="services.html" style="color: hsla(334,94%, 57%, 0.15);">Acceuil</a></li>
+								<li><a href="index.html">Sécurité</a></li>
+								<li><a   href="about.html">Assistance</a></li>
+							</ul>
+						</nav>
+						<!-- header menu search button -->
+						<div class="header-search-button search-box-outer">
+							<a href="#"><i class="fas fa-search"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<a href="{% url 'connexion' %}"><button class="btn border-danger text-danger">S'Se connecter</button></a>
+					<a href="{% url 'inscription' %}"><button class="btn border-danger text-danger">S'inscrire</button></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End nav -->
+
+
+	<!-- Start nav sm -->
+	<section class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none ">
+		<div class="mobile-menu">
+			<nav class="consen_menu ">
+				<ul class="nav_scroll ">
+					<li><a class="home-active" href="services.html">Acceuil</a></li>
+					<li><a href="index.html">Sécurité</a></li>
+					<li><a   href="about.html">Assistance</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<!-- End nav sm -->
+
+
+
+
+
+	
+	<!-- Start carousel -->
+	<section class="hero-area">
+		<div id="customers-hero" class="owl-carousel">
+
+			<!-- hero-item  -->
+			<div class="item">
+				<div class="hero-active" data-background="{% static 'image/couple3.jpg' %}">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="hero-content text-center">
+									<h6>Vraiment pas idée</h6>
+									<h1 class="hero-heading-one">RENCONTRER ICI VOTRE PARTENAIRE</h1>
+									<!--<h1 class="hero-heading-two">Your <span>Business.</span></h1>-->
+									<p>Je ne sais pas ce qu'il faut mettre</p>
+									<div class="hero-btn">
+										<a href="about.html">En savoir plus<span><i class="flaticon flaticon-right-arrow"></i></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			
+			<!-- hero-item 2 -->
+			<div class="item">
+				<div class="hero-active" data-background="{% static 'image/couple2.jpg' %}">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="hero-content text-center">
+									<h6>Vraiment pas idée</h6>
+									<h1 class="hero-heading-one">RENCONTRER ICI VOTRE PARTENAIRE</h1>
+									<!--<h1 class="hero-heading-two">Your <span>Business.</span></h1>-->
+									<p>Je ne sais pas ce qu'il faut mettre</p>
+									<div class="hero-btn">
+										<a href="about.html">En savoir plus<span><i class="flaticon flaticon-right-arrow"></i></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<!-- hero-item 1 -->
+<div class="item">
+	<div class="hero-active" data-background="{% static 'image/couple1.jpg' %}">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="hero-content text-center">
+						<h6>Vraiment pas idée</h6>
+						<h1 class="hero-heading-one">RENCONTRER ICI VOTRE PARTENAIRE</h1>
+						<!--<h1 class="hero-heading-two">Your <span>Business.</span></h1>-->
+						<p>Je ne sais pas ce qu'il faut mettre</p>
+						<div class="hero-btn ">
+							<a href="about.html">En savoir plus<span><i class="flaticon flaticon-right-arrow bg-danger text-white"></i></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+            
+		</div>
+
+        
+
+		<!-- dark-light button -->
+		<div class="dark-light" onclick="themeToggle()">
+			<span class="light-sun-mode"><i class="fas fa-moon"></i></span>
+			<span class="dark-sun-mode d-none"><i class="fas fa-sun"></i></span>
+		</div>	
+
+	</section>
+	<!-- End carousel -->
+
+
+
+	
+   
+
+
+
+
+	<script src="{% static 'js/jquery-3.6.2.min.js' %}"></script>
+
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+	<script src="{% static 'js/jquery.meanmenu.js' %}"></script>
+	
+	<script src="{% static 'js/theme.js ' %}"></script>
+
 </body>
+
 </html>

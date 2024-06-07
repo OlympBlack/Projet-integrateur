@@ -1,0 +1,715 @@
+
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) and (max-width: 1399px) {
+
+    .blog-solution-text {
+        top: 39%;
+    }
+    .contact-left {
+        padding: 50px 0px 50px 35px;
+    }
+    .mapouter.fixed-height {
+        padding-left: 70px;
+    }
+
+}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    
+    /*--  Header Css --*/
+
+    .finweb-menu ul li a {
+        font-size: 15px;
+        margin-right: 33px;
+    }
+
+    /*--  Hero Css --*/
+
+    #customers-hero .owl-nav .owl-prev, #customers-hero .owl-nav .owl-next {
+        display: none;
+    }
+
+    /*--  Feature Css --*/
+
+    .feature-tl-content h2 {
+        font-size: 22px;
+    }
+
+    /*--  Fliping Css --*/
+
+    .front-card-heading h4 {
+        font-size: 19px;
+    }
+    .back-content {
+        padding: 18px 10px 16px;
+    }
+    .back-content h4 {
+        font-size: 19px;
+    }
+    .back-content p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+     /*--  About Css --*/
+
+    .about-inner-content p {
+        width: 91%;
+        font-size: 14px;
+    }
+    .about-right-thum img {
+        width: 100%;
+    }
+    .about-thume-shape2 {
+        left: -48px;
+    }
+
+    /*--  Count Css --*/
+
+    .count-text p {
+        font-size: 18px;
+    }
+
+    /*--  Project Css --*/
+
+    .project-content h4 {
+        font-size: 23px;
+    }
+    .project-content p {
+        font-size: 15px;
+    }
+
+    /*--  Service Css --*/
+
+    .service-front-content {
+        padding: 45px 30px 38px 30px;
+    }
+    .service-front-card-heading h4 {
+        font-size: 20px;
+    }
+    .service-front-card-heading p {
+        font-size: 12px;
+    }
+    .service-back-content {
+        padding: 40px 20px 70px 20px;
+    }
+    .service-back-content h4 {
+        font-size: 21px;
+    }
+    .service-back-content p {
+        font-size: 13px;
+    }
+
+    /*--  Team Css --*/
+
+    .team-social-icon {
+        left: -20%;
+        bottom: 35%;
+    }
+
+    /*--  Testi Css --*/
+
+    .testi-paragraph p {
+        font-size: 11px;
+        line-height: 22px;
+    }
+
+    /*--  Brand Css --*/
+
+    .brand-single-box img {
+        width: 70%;
+    }
+
+    /*--  Pricing Css --*/
+
+    .pricing-item-box {
+        padding: 45px 30px 60px 30px;
+    }
+    .pricing-middle-content h6 {
+        font-size: 19px;
+    }
+    .pricing-top-content p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    /*--  Blog Css --*/
+
+    .blog-ip-area .blog-solution-text {
+        top: 32%;
+    }
+    .blog-ip-area .blog-content p {
+        font-size: 14px;
+    }
+    .blog-ip-area .blog-celender-user ul li {
+        font-size: 10px;
+    }
+
+
+    /*--  Blog-Details Css --*/
+
+    .blog-categories {
+        padding: 40px 40px 40px 20px;
+    }
+    .blog-categories h4 {
+        width: 250px;
+        padding: 14px 14px 14px 30px;
+    }
+    .blog-categories {
+        padding: 40px 0px 40px 20px;
+    }
+    .blog-Recent-img {
+        margin-right: 10px;
+    }
+    .blog-Recent-Post-content h5 {
+        font-size: 13px;
+    }
+    .blog-Recent-Post-content p {
+        font-size: 12px;
+    }
+
+    /*--  Contact Css --*/
+
+    .contact-left {
+        padding: 50px 0px 50px 30px;
+    }
+    .mapouter.fixed-height {
+        height: 811px;
+        padding-left: 60px;
+    }
+    
+
+
+}
+
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    
+    /*--  Header Css --*/
+    
+    .header-area {
+        display: none;
+    }
+
+    /*--  Hero Css --*/
+
+    #customers-hero .owl-nav .owl-prev, #customers-hero .owl-nav .owl-next {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 52px;
+        line-height: 52px;
+    }
+
+    /*--  About Css --*/
+
+    .about-area {
+        padding: 420px 0 116px;
+        margin-top: -496px;
+    }
+    .about-item-box {
+        margin-bottom: 60px;
+    }
+
+    /*--  Project Css --*/
+
+    .project-content h4 {
+        font-size: 27px;
+    }
+
+    /*--  feature Css --*/
+
+    .feature-btn {
+        margin-top: 60px;
+        text-align: left !important;
+    }
+
+    /*--  Service Css --*/
+
+    .service-front-content {
+        padding: 45px 38px 38px 38px;
+    }
+    .service-front-card-heading p {
+        font-size: 13px;
+    }
+    .service-back-content p {
+        font-size: 14px;
+    }
+    .service-top-btn {
+        margin-top: 0px;
+        text-align: left !important;
+        margin-bottom: 60px;
+    }
+
+    /*--  Brand Css --*/
+
+    .brand-single-box {
+        width: 31%;
+    }
+    .row.brand-down {
+        justify-content: left !important;
+    }
+
+    /*--  Blog Css --*/
+
+    .blog-content {
+        padding: 16px 215px 10px 27px;
+    }
+
+    .blog-ip-area .blog-content {
+        padding: 16px 30px 10px 27px;
+    }
+    .blog-ip-area .blog-content p {
+        font-size: 16px;
+    }
+    .blog-ip-area .blog-solution-text {
+        top: 38%;
+    }
+    .blog-ip-area .blog-celender-user ul li {
+        font-size: 12px;
+    }
+
+    /*--  Contact Css --*/
+
+    .contact-left {
+        padding: 50px 35px 50px 35px;
+    }
+    .mapouter.fixed-height {
+        padding-left: 0;
+    }
+
+    
+
+
+
+}
+
+
+
+/* Large Mobile :600px. */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+
+    /*--  Header Css --*/
+
+    .header-area {
+        display: none;
+    }
+    
+    /*--  Hero Css --*/
+
+    #customers-hero .owl-nav .owl-prev, #customers-hero .owl-nav .owl-next {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 42px;
+        line-height: 42px;
+    }
+    .hero-content p {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    /*--  Feature Css --*/
+
+    .feature-tl-content h2 {
+        font-size: 25px;
+    }
+    .feature-btn {
+        margin-top: 50px;
+        text-align: left !important;
+    }
+
+    /*--  Fliping Css --*/
+
+    .back-content {
+        padding: 18px 100px 16px;
+    }
+
+    /*--  About Css --*/
+
+    .about-item-box {
+        margin-bottom: 60px;
+    }
+
+    /*--  Counter Css --*/
+
+    .count-text p {
+        font-size: 16px;
+    }
+
+    /*--  Project Css --*/
+
+    ul.project-menu li {
+        font-size: 14px;
+    }
+    .service-top-btn {
+        margin-top: 0px;
+        text-align: left !important;
+        margin-bottom: 60px;
+    }
+
+    /*--  Team Css --*/
+
+    .team-item-box:hover .team-social-icon {
+        transform: translateX(240%);
+    }
+
+    /*--  Brand Css --*/
+
+    .brand-single-box {
+        width: 46%;
+        margin-right: 4%;
+    }
+
+    /*--  Blog Css --*/
+
+    .blog-content {
+        padding: 16px 73px 10px 27px;
+    }
+    .blog-solution-text {
+        top: 50%;
+    }
+
+    /*--  Footer Css --*/
+
+    .company-info-desc p {
+        width: 80%;
+    }
+    .contact-left {
+        padding: 50px 35px 50px 35px;
+    }
+    .mapouter.fixed-height {
+        padding-left: 0;
+    }
+
+
+}
+
+
+
+/* small mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+
+    /*--  Header Css --*/
+
+    .header-area {
+        display: none;
+    }
+
+    /*--  Hero Css --*/
+
+    .hero-active {
+        height: 660px;
+    }
+    #customers-hero .owl-nav .owl-prev, #customers-hero .owl-nav .owl-next {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 38px;
+        line-height: 40px;
+    }
+    .hero-content p {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .hero-btn a {
+        padding: 13px 20px;
+    }
+
+    /*--  Feature Css --*/
+
+    .feature-tl-content h2 {
+        font-size: 22px;
+        line-height: 24px;
+    }
+    .feature-btn {
+        margin-top: 50px;
+        text-align: left !important;
+    }
+
+    /*--  About Css --*/
+
+    .about-content .about-heading h2 {
+        font-size: 29px;
+    }
+    .about-content .about-heading p {
+        font-size: 13px;
+        width: 73%;
+    }
+    .about-inner-content p {
+        width: 75%;
+        font-size: 14px;
+    }
+    .about-item-box {
+        margin-bottom: 60px;
+    }
+    .about-right-thum img {
+        width: 100%;
+    }
+    .about-thume-shape2 {
+        bottom: -82px;
+        left: -62px;
+    }
+
+    /*--  Project Css --*/
+
+    .service-top-content h2 {
+        font-size: 27px;
+    }
+    ul.project-menu li {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+    .service-top-btn {
+        margin-top: 0;
+        text-align: left !important;
+        margin-bottom: 60px;
+    }
+    .service-top-content p {
+        width: 80%;
+    }
+    .brand-single-box {
+        width: 48%;
+        margin-right: 2%;
+    }
+    .section-title .section-main-title {
+        font-size: 29px;
+    }
+    .team-social-icon {
+        bottom: 34%;
+    }
+    .team-item-box:hover .team-social-icon {
+        transform: translateX(240%);
+    }
+    .contact-left {
+        padding: 50px 35px 50px 35px;
+    }
+    .mapouter.fixed-height {
+        padding-left: 0;
+    }
+    .contact-title h2 {
+        font-size: 25px;
+    }
+
+    
+
+}
+
+
+
+
+
+/* small mobile :320px. */
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    
+    /*--  Header Css --*/
+    
+    .header-area {
+        display: none;
+    }
+
+    /*--  Hero Css --*/
+
+    .hero-active {
+        height: 580px;
+    }
+    #customers-hero .owl-nav .owl-prev, #customers-hero .owl-nav .owl-next {
+        display: none;
+    }
+    .hero-content h6 {
+        font-size: 14px;
+    }
+    .hero-content h1 {
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 900;
+    }
+    .hero-content p {
+        font-size: 12px;
+        font-weight: 400;
+        padding: 13px 42px 45px;
+        line-height: 22px;
+    }
+    .dark-light {
+        top: 11%;
+        width: 50px;
+        height: 50px;
+        line-height: 38px;
+    }
+    .hero-btn a {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+
+    /*--  Feature Css --*/
+
+    .feature-tl-content h2 {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .feature-btn {
+        text-align: left !important;
+    }
+
+    /*--  About Css --*/
+
+    .about-content .about-heading h2 {
+        font-size: 19px;
+    }
+    .about-content .about-heading p {
+        font-size: 12px;
+        line-height: 22px;
+        width: 99%;
+    }
+    .about-inner-content p {
+        width: 100%;
+        font-size: 11px;
+    }
+    .about-right-thum {
+        margin-top: 60px;
+    }
+    .about-right-thum img {
+        width: 100%;
+    }
+    .dark-theme .about-thume-shape2 {
+        display: none !important;
+    }
+    .about-thume-shape {
+        display: none;
+    }
+    .about-inner-content h4 {
+        margin-top: 6px;
+        font-size: 16px;
+    }
+    
+    /*--  Project Css --*/
+
+    ul.project-menu {
+        display: none;
+    }
+    .section-title .section-main-title {
+        font-size: 19px;
+    }
+    .section-title .section-paragraph {
+        font-size: 10px;
+    }
+    .project-content h4 {
+        font-size: 22px;
+    }
+    .project-content p {
+        font-size: 11px;
+    }
+
+    /*--  Service Css --*/
+
+    .service-top-content h2 {
+        font-size: 18px;
+    }
+    .service-top-content p {
+        font-size: 11px;
+        width: 70%;
+    }
+    .service-top-btn {
+        margin-top: -10px;
+        text-align: left !important;
+        margin-bottom: 60px;
+    }
+    .service-front-content {
+        padding: 45px 30px 38px 30px;
+    }
+    .service-front-card-heading h4 {
+        font-weight: 700;
+        font-size: 19px;
+    }
+    .service-front-card-heading p {
+        font-size: 12px;
+    }
+    .service-back-content h4 {
+        font-size: 19px;
+    }
+    .service-back-content p {
+        font-size: 11px;
+    }
+
+    /*--  Team Css --*/
+
+    .team-social-icon {
+        left: -14%;
+    }
+
+    /*--  Brand Css --*/
+
+    .brand-area {
+        display: none;
+    }
+
+    /*--  Pricing Css --*/
+
+    .pricing-middle-content h6 {
+        font-size: 15px;
+    }
+    .pricing-list-item ul li {
+        font-size: 14px;
+    }
+    .pricing-top-content h3 {
+        font-size: 27px;
+    }
+
+    /*--  Blog Css --*/
+
+    .blog-solution-text {
+        top: 27%;
+    }
+    .blog-content h4 {
+        font-size: 21px;
+    }
+    .blog-content p {
+        font-size: 10px;
+        line-height: 20px;
+    }
+    .blog-solution-text {
+        top: 44%;
+    }
+    .blog-bottom-item {
+        display: none;
+    }
+
+
+    /*--  Blog-Details Css --*/
+
+
+    .blog-categories {
+        padding: 40px 0 40px 14px;
+    }
+    .blog-categories h4 {
+        width: 260px;
+    }
+    .blog-Recent-Post-content h5 {
+        font-size: 13px;
+    }
+
+    /*--  Conatct Css --*/
+
+    .contact-left {
+        padding: 50px 35px 50px 35px;
+    }
+    .row.contact_bg {
+        padding: 25px 0px 65px;
+    }
+    .contact-title h2 {
+        font-size: 17px;
+        font-weight: 800;
+    }
+    .mapouter.fixed-height {
+        padding-left: 0;
+    }
+
+
+
+
+
+}
