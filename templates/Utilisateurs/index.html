@@ -28,7 +28,7 @@
 	           <style>
 				.header-area a{
 					text-decoration: none;
-					color: red;
+					color: #4a2173;
 				}
 			
 				.active{
@@ -58,13 +58,13 @@
 	
 	
 	<!-- Start nav  -->
-	<section id="sticky" class="header-area  text-white" style="margin-top: -30px; color: red;">
+	<section id="sticky" class="header-area  text-white" style="margin-top: -30px; color: #4a2173;">
 		<div class="container">
 			<div class="row justify-content-between" style="height: 30px;">
 				<div class="col-lg-2">
 					<div class="header-bottom-logo">
 						<div class="main-logo">
-							<a class="header-logo1" href="index.html"><img src="./assets/images/logo/logo GFT.png" alt=""></a><span style="font-size: 25px; font-weight: bold; color: red;">SOULQUEST</span>
+							<a class="header-logo1" href="index.html"><img src="./assets/images/logo/logo GFT.png" alt=""></a><span style="font-size: 25px; font-weight: bold; color: #4a2173;">SOULQUEST</span>
 							<!--<a class="header-logo2 d-none" href="index.html"><img src="./assets/images/logo/header-logo2.png" alt=""></a>-->
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 					<div class="finweb-menu d-flex justify-content-end">
 						<nav>
 							<ul class="d-flex">
-								<li><a class="active" href="services.html" style="color: hsla(334,94%, 57%, 0.15);">Acceuil</a></li>
+								<li><a class="active" href="services.html">Acceuil</a></li>
 								<li><a href="index.html">Sécurité</a></li>
 								<li><a   href="about.html">Assistance</a></li>
 							</ul>
@@ -86,8 +86,8 @@
 				</div>
 
 				<div class="col-lg-4">
-					<a href="{% url 'connexion' %}"><button class="btn border-danger text-danger">Se connecter</button></a>
-					<a href="{% url 'inscription' %}"><button class="btn border-danger text-danger">S'inscrire</button></a>
+					<a href="{% url 'Utilisateurs:connexion' %}"><button class="btn" style="border: 1px solid #4a2173; color: #4a2173;">Se connecter</button></a>
+					<a href="{% url 'Utilisateurs:inscription' %}"><button class="btn" style="border: 1px solid #4a2173; color: #4a2173;">S'inscrire</button></a>
 				</div>
 			</div>
 		</div>
@@ -125,10 +125,8 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="hero-content text-center">
-									<h6>Vraiment pas idée</h6>
-									<h1 class="hero-heading-one">RENCONTRER ICI VOTRE PARTENAIRE</h1>
+									<h1 class="hero-heading-one" >VOUS ETES A LA RECHERCHE DE L'AME SOEUR ?</h1>
 									<!--<h1 class="hero-heading-two">Your <span>Business.</span></h1>-->
-									<p>Je ne sais pas ce qu'il faut mettre</p>
 									<div class="hero-btn">
 										<a href="about.html">En savoir plus<span><i class="flaticon flaticon-right-arrow"></i></span></a>
 									</div>
@@ -142,15 +140,13 @@
 			
 			<!-- hero-item 2 -->
 			<div class="item">
-				<div class="hero-active" data-background="{% static 'image/couple2.jpg' %}">
+				<div class="hero-active" data-background="{% static 'image/amis_1.jpeg' %}">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="hero-content text-center">
-									<h6>Vraiment pas idée</h6>
-									<h1 class="hero-heading-one">RENCONTRER ICI VOTRE PARTENAIRE</h1>
+									<h1 class="hero-heading-one">OU DE NOUVELLE CONNAISSANCE ?</h1>
 									<!--<h1 class="hero-heading-two">Your <span>Business.</span></h1>-->
-									<p>Je ne sais pas ce qu'il faut mettre</p>
 									<div class="hero-btn">
 										<a href="about.html">En savoir plus<span><i class="flaticon flaticon-right-arrow"></i></span></a>
 									</div>
@@ -163,15 +159,13 @@
 
 <!-- hero-item 1 -->
 <div class="item">
-	<div class="hero-active" data-background="{% static 'image/couple1.jpg' %}">
+	<div class="hero-active" data-background="{% static 'image/couple_pd.jpg' %}">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="hero-content text-center">
-						<h6>Vraiment pas idée</h6>
-						<h1 class="hero-heading-one">RENCONTRER ICI VOTRE PARTENAIRE</h1>
+						<h1 class="hero-heading-one">NE VOUS INQUIETEZ PAS SOULQUEST SAURA REPONDRE A VOS ATENTES</h1>
 						<!--<h1 class="hero-heading-two">Your <span>Business.</span></h1>-->
-						<p>Je ne sais pas ce qu'il faut mettre</p>
 						<div class="hero-btn ">
 							<a href="about.html">En savoir plus<span><i class="flaticon flaticon-right-arrow bg-danger text-white"></i></span></a>
 						</div>
