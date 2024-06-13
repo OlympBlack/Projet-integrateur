@@ -43,18 +43,6 @@ class ZzLangages(models.Model):
         db_table = 'zz_langages'
 
 
-class ZzLocations(models.Model):
-    user = models.ForeignKey('ZzUsers', models.DO_NOTHING)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
-    city = models.CharField(max_length=255)
-    country = models.CharField(max_length=255)
-
-    class Meta:
-        managed = False
-        db_table = 'zz_locations'
-
-
 class ZzMedias(models.Model):
     path = models.CharField(unique=True, max_length=255)
     type = models.CharField(max_length=1, blank=True, null=True)
@@ -91,6 +79,10 @@ class ZzUsers(models.Model):
     plage = models.CharField(max_length=2, blank=True, null=True)
     astre = models.CharField(max_length=10, blank=True, null=True)
     religion = models.CharField(max_length=10, blank=True, null=True)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    city = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
     hobby = models.JSONField(blank=True, null=True)
     pref = models.JSONField(blank=True, null=True)
     online = models.IntegerField(blank=True, null=True)

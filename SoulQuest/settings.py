@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +72,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SoulQuest.wsgi.application'
+#WSGI_APPLICATION = 'SoulQuest.wsgi.application'
+
+ASGI_APPLICATION = 'SoulQuest.asgi.application'
 
 
 # Database
