@@ -1,8 +1,8 @@
 -- Adminer 4.8.1 MySQL 8.2.0 dump
-
+USE ProjectDB;
 SET NAMES utf8;
 SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
+SET foreign_key_checks = 0; 
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `friendship`;
@@ -34,6 +34,130 @@ CREATE TABLE `zz_langages` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `zz_langages` (id, name) VALUES
+(1, 'Afrikaans')
+(2, 'Albanais')
+(3, 'Amharique')
+(4, 'Anglais')
+(5, 'Arabe')
+(6, 'Arménien')
+(7, 'Aymara')
+(8, 'Azéri')
+(9, 'Bengali')
+(10, 'Birman')
+(11, 'Bosniaque')
+(12, 'Bulgare')
+(13, 'Catalan')
+(14, 'Chichewa')
+(15, 'Chinois (mandarin)')
+(16, 'Coréen')
+(17, 'Croate')
+(18, 'Danois')
+(19, 'Espagnol')
+(20, 'Estonien')
+(21, 'Finnois')
+(22, 'Français')
+(23, 'Géorgien')
+(24, 'Grec')
+(25, 'Hébreu')
+(26, 'Hindi')
+(27, 'Hongrois')
+(28, 'Indonésien')
+(29, 'Irlandais')
+(30, 'Islandais')
+(31, 'Italien')
+(32, 'Japonais')
+(33, 'Kazakh')
+(34, 'Kirghize')
+(35, 'Kiswahili')
+(36, 'Kurde')
+(37, 'Letton')
+(38, 'Lituanien')
+(39, 'Luxembourgeois')
+(40, 'Macédonien')
+(41, 'Malais')
+(42, 'Maltais')
+(43, 'Maori')
+(44, 'Mongol')
+(45, 'Népalais')
+(46, 'Norvégien')
+(47, 'Ourdou')
+(48, 'Ouzbek')
+(49, 'Pachtou')
+(50, 'Persan')
+(51, 'Polonais')
+(52, 'Portugais')
+(53, 'Quechua')
+(54, 'Roumain')
+(55, 'Russe')
+(56, 'Serbe')
+(57, 'Sesotho')
+(58, 'Singhalais')
+(59, 'Slovaque')
+(60, 'Slovène')
+(61, 'Suédois')
+(62, 'Tamoul')
+(63, 'Tchèque')
+(64, 'Télougou')
+(65, 'Thaï')
+(66, 'Tigrigna')
+(67, 'Turc')
+(68, 'Ukrainien')
+(69, 'Vietnamien')
+(70, 'Xhosa')
+(71, 'Yiddish')
+(72, 'Zoulou')
+
+CREATE TABLE `zz_hobbys` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `zz_hobbys` (id, name) VALUES
+(1, 'Sport'),
+(2, 'Cuisine'),
+(3, 'Jardinage'),
+(4, 'Randonnée'),
+(5, 'Pêche'),
+(6, 'Musique'),
+(7, 'Musculation'),
+(8, 'Danse'),
+(9, 'Camping'),
+(10, 'Photographie'),
+(11, 'Bourse'),
+(12, 'Méditation'),
+(13, 'Technologie'),
+(14, 'Livres'),
+(15, 'Politique'),
+(16, 'Economie'),
+(17, 'Diplomatie'),
+(18, 'Mode'),
+(19, 'Concert'),
+(20, 'Voyage'),
+(21, 'Bijoux'),
+(22, 'Gaming'),
+(23, 'Commerce'),
+(24, 'Bricolage'),
+(25, 'Langues'),
+(26, 'Shopping'),
+(27, 'Séries'),
+(28, 'Films'),
+(29, 'Documentaire'),
+(30, 'Spiritualité'),
+(31, 'Théatre'),
+(32, 'Thé'),
+(33, 'Comédie'),
+(34, 'Astrologie'),
+(35, 'Beer'),
+(36, 'Vin'),
+(37, 'Cigarette'),
+(38, 'Automobile'),
+(39, 'Crypto'),
+(40, 'Surf'),
+(41, 'Informatique');
+
 
 
 DROP TABLE IF EXISTS `zz_medias`;
@@ -83,14 +207,26 @@ CREATE TABLE `zz_users` (
   `plage` enum('1','2','3','4','5','6','7','8','9','10') DEFAULT NULL,
   `astre` enum('Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne','Verseau','Poissons') DEFAULT NULL,
   `religion` enum('Catholique','Chrétien','Juif','Bouddhiste','Mormon','Musulman','Orthodoxe','Protestant','Hindou','Athée','Chamanique','Spirituel','Autres') DEFAULT NULL,
-  `ville` varchar(255) DEFAULT NULL,
-  `pays` varchar(255) DEFAULT NULL,
+  -- `ville` varchar(255) DEFAULT NULL,
+  -- `pays` varchar(255) DEFAULT NULL,
+  `hobby` json DEFAULT NULL,
   `pref` json DEFAULT NULL,
   `online` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `pseudo` (`pseudo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE  `zz_locations`(
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `user_id` INT NOT NULL,
+    `longitude` DOUBLE PRECISION NOT NULL,
+    `latitude` DOUBLE PRECISION NOT NULL,
+    `city` VARCHAR(255) NOT NULL,
+    `country` VARCHAR(255) NOT NULL,
+    CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `zz_users`(`id`)
+);
+
 
 
 DROP TABLE IF EXISTS `zz_users_discussions`;

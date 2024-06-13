@@ -1,0 +1,7 @@
+{
+    "search_radius": 25,
+    "location_preference": "proximity",  // Peut être "proximity", "country" ou "international"
+    "other_preferences": {
+        // Autres préférences de l'utilisateur
+    }
+}

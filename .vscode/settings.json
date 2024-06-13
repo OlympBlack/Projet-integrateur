@@ -1,0 +1,5 @@
+{
+    "vscode-mysql.maxTableCount": 500,
+    "vscode-mysql.enableTelemetry": true,
+    "vscode-mysql.enableDelimiterOperator": true
+}
