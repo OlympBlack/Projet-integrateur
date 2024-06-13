@@ -1,5 +1,4 @@
 -- Adminer 4.8.1 MySQL 8.2.0 dump
-USE ProjectDB;
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0; 
@@ -207,8 +206,6 @@ CREATE TABLE `zz_users` (
   `plage` enum('1','2','3','4','5','6','7','8','9','10') DEFAULT NULL,
   `astre` enum('Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne','Verseau','Poissons') DEFAULT NULL,
   `religion` enum('Catholique','Chrétien','Juif','Bouddhiste','Mormon','Musulman','Orthodoxe','Protestant','Hindou','Athée','Chamanique','Spirituel','Autres') DEFAULT NULL,
-  -- `ville` varchar(255) DEFAULT NULL,
-  -- `pays` varchar(255) DEFAULT NULL,
   `hobby` json DEFAULT NULL,
   `pref` json DEFAULT NULL,
   `online` tinyint(1) DEFAULT '0',
