@@ -7,7 +7,7 @@
 }
 /*footer*/
 .footer-area {
-  background-color: #3a1b5e;
+  background: linear-gradient(to right, rgb(129, 63, 222), rgb(253, 56, 214));
   color: #fff;
   padding: 20px 0;
 }
