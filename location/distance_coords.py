@@ -1,3 +1,4 @@
+import json
 import math
 
 def calculer_distance_haversine(lat1, lon1, lat2, lon2):
