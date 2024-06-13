@@ -1,5 +1,4 @@
 -- Adminer 4.8.1 MySQL 8.2.0 dump
-USE ProjectDB;
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0; 
@@ -36,79 +35,80 @@ CREATE TABLE `zz_langages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `zz_langages` (id, name) VALUES
-(1, 'Afrikaans')
-(2, 'Albanais')
-(3, 'Amharique')
-(4, 'Anglais')
-(5, 'Arabe')
-(6, 'Arménien')
-(7, 'Aymara')
-(8, 'Azéri')
-(9, 'Bengali')
-(10, 'Birman')
-(11, 'Bosniaque')
-(12, 'Bulgare')
-(13, 'Catalan')
-(14, 'Chichewa')
-(15, 'Chinois (mandarin)')
-(16, 'Coréen')
-(17, 'Croate')
-(18, 'Danois')
-(19, 'Espagnol')
-(20, 'Estonien')
-(21, 'Finnois')
-(22, 'Français')
-(23, 'Géorgien')
-(24, 'Grec')
-(25, 'Hébreu')
-(26, 'Hindi')
-(27, 'Hongrois')
-(28, 'Indonésien')
-(29, 'Irlandais')
-(30, 'Islandais')
-(31, 'Italien')
-(32, 'Japonais')
-(33, 'Kazakh')
-(34, 'Kirghize')
-(35, 'Kiswahili')
-(36, 'Kurde')
-(37, 'Letton')
-(38, 'Lituanien')
-(39, 'Luxembourgeois')
-(40, 'Macédonien')
-(41, 'Malais')
-(42, 'Maltais')
-(43, 'Maori')
-(44, 'Mongol')
-(45, 'Népalais')
-(46, 'Norvégien')
-(47, 'Ourdou')
-(48, 'Ouzbek')
-(49, 'Pachtou')
-(50, 'Persan')
-(51, 'Polonais')
-(52, 'Portugais')
-(53, 'Quechua')
-(54, 'Roumain')
-(55, 'Russe')
-(56, 'Serbe')
-(57, 'Sesotho')
-(58, 'Singhalais')
-(59, 'Slovaque')
-(60, 'Slovène')
-(61, 'Suédois')
-(62, 'Tamoul')
-(63, 'Tchèque')
-(64, 'Télougou')
-(65, 'Thaï')
-(66, 'Tigrigna')
-(67, 'Turc')
-(68, 'Ukrainien')
-(69, 'Vietnamien')
-(70, 'Xhosa')
-(71, 'Yiddish')
-(72, 'Zoulou')
+(1, 'Afrikaans'),
+(2, 'Albanais'),
+(3, 'Amharique'),
+(4, 'Anglais'),
+(5, 'Arabe'),
+(6, 'Arménien'),
+(7, 'Aymara'),
+(8, 'Azéri'),
+(9, 'Bengali'),
+(10, 'Birman'),
+(11, 'Bosniaque'),
+(12, 'Bulgare'),
+(13, 'Catalan'),
+(14, 'Chichewa'),
+(15, 'Chinois (mandarin)'),
+(16, 'Coréen'),
+(17, 'Croate'),
+(18, 'Danois'),
+(19, 'Espagnol'),
+(20, 'Estonien'),
+(21, 'Finnois'),
+(22, 'Français'),
+(23, 'Géorgien'),
+(24, 'Grec'),
+(25, 'Hébreu'),
+(26, 'Hindi'),
+(27, 'Hongrois'),
+(28, 'Indonésien'),
+(29, 'Irlandais'),
+(30, 'Islandais'),
+(31, 'Italien'),
+(32, 'Japonais'),
+(33, 'Kazakh'),
+(34, 'Kirghize'),
+(35, 'Kiswahili'),
+(36, 'Kurde'),
+(37, 'Letton'),
+(38, 'Lituanien'),
+(39, 'Luxembourgeois'),
+(40, 'Macédonien'),
+(41, 'Malais'),
+(42, 'Maltais'),
+(43, 'Maori'),
+(44, 'Mongol'),
+(45, 'Népalais'),
+(46, 'Norvégien'),
+(47, 'Ourdou'),
+(48, 'Ouzbek'),
+(49, 'Pachtou'),
+(50, 'Persan'),
+(51, 'Polonais'),
+(52, 'Portugais'),
+(53, 'Quechua'),
+(54, 'Roumain'),
+(55, 'Russe'),
+(56, 'Serbe'),
+(57, 'Sesotho'),
+(58, 'Singhalais'),
+(59, 'Slovaque'),
+(60, 'Slovène'),
+(61, 'Suédois'),
+(62, 'Tamoul'),
+(63, 'Tchèque'),
+(64, 'Télougou'),
+(65, 'Thaï'),
+(66, 'Tigrigna'),
+(67, 'Turc'),
+(68, 'Ukrainien'),
+(69, 'Vietnamien'),
+(70, 'Xhosa'),
+(71, 'Yiddish'),
+(72, 'Zoulou');
 
+DROP TABLE IF EXISTS `zz_hobbys`;
 CREATE TABLE `zz_hobbys` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -207,8 +207,6 @@ CREATE TABLE `zz_users` (
   `plage` enum('1','2','3','4','5','6','7','8','9','10') DEFAULT NULL,
   `astre` enum('Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne','Verseau','Poissons') DEFAULT NULL,
   `religion` enum('Catholique','Chrétien','Juif','Bouddhiste','Mormon','Musulman','Orthodoxe','Protestant','Hindou','Athée','Chamanique','Spirituel','Autres') DEFAULT NULL,
-  -- `ville` varchar(255) DEFAULT NULL,
-  -- `pays` varchar(255) DEFAULT NULL,
   `hobby` json DEFAULT NULL,
   `pref` json DEFAULT NULL,
   `online` tinyint(1) DEFAULT '0',
@@ -217,15 +215,16 @@ CREATE TABLE `zz_users` (
   UNIQUE KEY `pseudo` (`pseudo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+DROP TABLE IF EXISTS `zz_locations`;
 CREATE TABLE  `zz_locations`(
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
+    `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `user_id` INT UNSIGNED NOT NULL,
     `longitude` DOUBLE PRECISION NOT NULL,
     `latitude` DOUBLE PRECISION NOT NULL,
     `city` VARCHAR(255) NOT NULL,
     `country` VARCHAR(255) NOT NULL,
-    CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `zz_users`(`id`)
-);
+    CONSTRAINT `fk_loc_user` FOREIGN KEY (`user_id`) REFERENCES `zz_users`(`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 
