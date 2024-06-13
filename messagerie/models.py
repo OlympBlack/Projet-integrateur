@@ -35,6 +35,21 @@ class Friendship(models.Model):
         managed = False
         db_table = 'friendship'
         unique_together = (('liker', 'liked', 'lik'), ('liker', 'liked', 'lik'),)
+
+class ZzMedias(models.Model):
+    path = models.CharField(unique=True, max_length=255)
+    type = models.CharField(max_length=1, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'zz_medias'
+
+class ZzDiscussions(models.Model):
+    last_message = models.ForeignKey('ZzMessages', models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'zz_discussions'
         
 class ZzMessages(models.Model):
     content = models.TextField()
@@ -48,13 +63,6 @@ class ZzMessages(models.Model):
         managed = False
         db_table = 'zz_messages'
 
-class ZzDiscussions(models.Model):
-    last_message = models.ForeignKey('ZzMessages', models.DO_NOTHING, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'zz_discussions'
-        
 class ZzUsersDiscussions(models.Model):
     user = models.OneToOneField(ZzUsers, models.DO_NOTHING, primary_key=True)  # The composite primary key (user_id, discussion_id) found, that is not supported. The first column is selected.
     discussion = models.ForeignKey(ZzDiscussions, models.DO_NOTHING)
@@ -65,14 +73,6 @@ class ZzUsersDiscussions(models.Model):
         managed = False
         db_table = 'zz_users_discussions'
         unique_together = (('user', 'discussion'), ('user', 'discussion'),)
-
-class ZzMedias(models.Model):
-    path = models.CharField(unique=True, max_length=255)
-    type = models.CharField(max_length=1, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'zz_medias'
 
 class ZzUsersMedias(models.Model):
     user = models.OneToOneField(ZzUsers, models.DO_NOTHING, primary_key=True)  # The composite primary key (user_id, media_id) found, that is not supported. The first column is selected.
