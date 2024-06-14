@@ -1,0 +1,32 @@
+/*Ecran inférieur à 1200px*/
+@media  screen and (max-width: 1200px)  {
+
+    .filter .header-right {
+        position:relative;
+        top:auto;
+        right: 0;
+        z-index: 111;
+
+    }
+
+    .filter:not("header") {
+        display: none;
+        z-index: 0;
+    }
+
+    .filter .fit {
+        position: absolute;
+        right: -100%;
+    }
+
+    .content {
+        width: calc(100% - 300px);
+        z-index: 100;
+    }
+
+}
+
+
+
+
+/*Ecran inférieur à 768px*/
