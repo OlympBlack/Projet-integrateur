@@ -4,12 +4,41 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0; 
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `friendship`;
-CREATE TABLE `friendship` (
+DROP TABLE IF EXISTS `zz_users`;
+CREATE TABLE `zz_users` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `pseudo` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `last_connect` datetime NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `birthday` date NOT NULL,
+  `bio` mediumtext,
+  `sex` enum('Homme','Femme','Non-Binaire','Je préfère ne pas dire') DEFAULT NULL,
+  `plage` enum('1','2','3','4','5','6','7','8','9','10') DEFAULT NULL,
+  `astre` enum('Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne','Verseau','Poissons') DEFAULT NULL,
+  `religion` enum('Catholique','Chrétien','Juif','Bouddhiste','Mormon','Musulman','Orthodoxe','Protestant','Hindou','Athée','Chamanique','Spirituel','Autres') DEFAULT NULL,
+  `longitude` DOUBLE PRECISION NOT NULL,
+  `latitude` DOUBLE PRECISION NOT NULL,
+  `city` VARCHAR(255) NOT NULL,
+  `country` VARCHAR(255) NOT NULL,
+  `hobby` json DEFAULT NULL,
+  `pref` json DEFAULT NULL,
+  `online` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `pseudo` (`pseudo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+DROP TABLE IF EXISTS `zz_friendship`;
+CREATE TABLE `zz_friendship` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `liker` int unsigned NOT NULL,
   `liked` int unsigned NOT NULL,
   `lik` int unsigned NOT NULL,
-  PRIMARY KEY (`liker`,`liked`,`lik`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `liker` (`liker`,`liked`,`lik`),
   KEY `fk_f_medias` (`liked`),
   CONSTRAINT `fk_f_medias` FOREIGN KEY (`liked`) REFERENCES `zz_users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
@@ -21,9 +50,7 @@ DROP TABLE IF EXISTS `zz_discussions`;
 CREATE TABLE `zz_discussions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `last_message_id` int unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_d_message` (`last_message_id`),
-  CONSTRAINT `fk_d_message` FOREIGN KEY (`last_message_id`) REFERENCES `zz_messages` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
@@ -167,7 +194,7 @@ CREATE TABLE `zz_medias` (
   `type` enum('0','1','3') DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `path` (`path`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
 DROP TABLE IF EXISTS `zz_messages`;
@@ -191,42 +218,15 @@ CREATE TABLE `zz_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
-DROP TABLE IF EXISTS `zz_users`;
-CREATE TABLE `zz_users` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `pseudo` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `last_connect` datetime NOT NULL,
-  `nom` varchar(255) DEFAULT NULL,
-  `prenom` varchar(255) DEFAULT NULL,
-  `birthday` date NOT NULL,
-  `bio` mediumtext,
-  `sex` enum('Homme','Femme','Non-Binaire','Je préfère ne pas dire') DEFAULT NULL,
-  `plage` enum('1','2','3','4','5','6','7','8','9','10') DEFAULT NULL,
-  `astre` enum('Bélier','Taureau','Gémeaux','Cancer','Lion','Vierge','Balance','Scorpion','Sagittaire','Capricorne','Verseau','Poissons') DEFAULT NULL,
-  `religion` enum('Catholique','Chrétien','Juif','Bouddhiste','Mormon','Musulman','Orthodoxe','Protestant','Hindou','Athée','Chamanique','Spirituel','Autres') DEFAULT NULL,
-  `longitude` DOUBLE PRECISION NOT NULL,
-  `latitude` DOUBLE PRECISION NOT NULL,
-  `city` VARCHAR(255) NOT NULL,
-  `country` VARCHAR(255) NOT NULL,
-  `hobby` json DEFAULT NULL,
-  `pref` json DEFAULT NULL,
-  `online` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
 
 DROP TABLE IF EXISTS `zz_users_discussions`;
 CREATE TABLE `zz_users_discussions` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL,
   `discussion_id` int unsigned NOT NULL,
   `status` int NOT NULL,
   `lastdate` datetime DEFAULT NULL,
-  PRIMARY KEY (`user_id`,`discussion_id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`discussion_id`),
   KEY `fk_ud_discussion` (`discussion_id`),
   CONSTRAINT `fk_ud_discussion` FOREIGN KEY (`discussion_id`) REFERENCES `zz_discussions` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
@@ -236,10 +236,11 @@ CREATE TABLE `zz_users_discussions` (
 
 DROP TABLE IF EXISTS `zz_users_langages`;
 CREATE TABLE `zz_users_langages` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL,
   `langage_id` int unsigned NOT NULL,
   `type` int unsigned NOT NULL,
-  PRIMARY KEY (`user_id`,`langage_id`,`type`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`langage_id`,`type`),
   KEY `fk_ul_langage` (`langage_id`),
   CONSTRAINT `fk_ul_langage` FOREIGN KEY (`langage_id`) REFERENCES `zz_langages` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
@@ -249,10 +250,11 @@ CREATE TABLE `zz_users_langages` (
 
 DROP TABLE IF EXISTS `zz_users_medias`;
 CREATE TABLE `zz_users_medias` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL,
   `media_id` int unsigned NOT NULL,
   `principal` int unsigned DEFAULT '0',
-  PRIMARY KEY (`user_id`,`media_id`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`media_id`),
   KEY `fk_um_medias` (`media_id`),
   CONSTRAINT `fk_um_medias` FOREIGN KEY (`media_id`) REFERENCES `zz_medias` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
