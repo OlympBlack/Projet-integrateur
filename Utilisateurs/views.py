@@ -11,3 +11,6 @@ def Inscription(request):
 
 def Connexion(request):
     return render(request, 'Utilisateurs/connexion.html')
+
+def Profil(request):
+    return render(request, 'Utilisateurs/profil.html')

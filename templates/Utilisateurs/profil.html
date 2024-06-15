@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Réglages | Soulquest</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style_profil.css' %}" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <a href="#" class="back-button bx bx-arrow-back"></a>
+  <a href="#" class="toggle-sidebar-button bx bx-menu" onclick="toggleSidebar()"></a>
+    
+  <div class="container-fluid">
+    <div class="row">
+      <div id="sidebar" class="col-md-4 sidebar animate__animated animate__fadeInLeft animate__slow" data-aos="fade-right">
+        <div class="profile-section">
+          <img src="{% static 'image/profil.jpg' %}" alt="Profile Picture">
+          <h2 class="text-white"><strong>OlympBlack</strong></h2>
+        </div>
+        <div class="menu">
+          <label for="email">Adresse e-mail</label>
+          <input type="text" id="email" class="form-control" value="gbassijuleschrist@gmail.com" disabled>
+
+          <label for="pseudo">Pseudo</label>
+          <input type="text" id="pseudo" class="form-control" value="Jules-christ" disabled>
+
+          <label for="birthday">Date de naissance</label>
+          <input type="text" id="birthday" class="form-control" value="15/08/2001" disabled>
+
+          <label for="bio">Biographie</label>
+          <input type="text" id="bio" class="form-control" value="Biographie" disabled>
+
+          <label for="sexe">Sexe</label>
+          <input type="text" id="sexe" class="form-control" value="Homme" disabled><br>
+
+          <input type="text" name="" id="" value="Paramètres de la fonction Découverte" disabled class="bg-white text-dark form-control text-center">
+
+          <label for="location">Emplacement</label>
+          <input type="text" id="location" class="form-control" value="Cotonou - Bénin" disabled>
+
+          <label for="religion">Réligion</label>
+          <input type="text" id="religion" class="form-control" value="Chétien" disabled>
+
+          <label for="distance">Plage d'âge</label>
+          <input type="range" id="distance" class="form-range" min="18" max="100" value="25">
+
+          <label class="form-check">
+            <input type="checkbox" class="form-check-input" id="only-this-range">
+            Afficher uniquement des personnes dans cette plage
+          </label>
+
+          <div class="d-flox">
+            <label for="long">longitude</label>
+            <input type="text" id="long" class="" value="45" disabled>
+
+            <label for="lat">latitude</label>
+            <input type="text" id="lat" class="" value="70" disabled>
+          </div><br>
+
+          <input type="text" name="" id="" value="Action" disabled class="bg-white text-danger form-control text-center">
+          
+          <div class="mt-2 ml-3">
+            <a href="#"><button class="btn btn-success">Déconnecter</button></a>
+            <a href="#"><button class="btn btn-danger">Supprimer mon compte</button></a>
+          </div>
+        </div>
+
+        <h5 class="text-center mt-4 text-white" style="text-decoration: underline;">SoulQuest- 2024</h5>
+      </div>
+      <div id="profile-card-container" class="col-md-8">
+        <div id="profile-card" class="profile-card mx-auto animate__animated animate__fadeInRight animate__slow" data-aos="fade-left">
+          <img src="{% static 'image/profil.jpg' %}" alt="Profile Picture">
+          <h2><strong>OlympBlack</strong></h2>
+
+          <button class="btn animate__animated animate__bounce animate__infinite" onmouseover="pauseAnimation(this)" onmouseout="resumeAnimation(this)">Modifier vos informations</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bibliothèques JavaScript tierces -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/glightbox.min.js' %}"></script>
+  <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- Scripts personnalisés -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/main2.js' %}"></script>
+</body>
+
+</html>
