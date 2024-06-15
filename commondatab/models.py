@@ -7,8 +7,30 @@ from django.db import models
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
-class ZzUsers(models.Model):
+class ZzUsersManager(BaseUserManager):
+    def create_user(self, email, password=None, **extra_fields):
+        if not email:
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self.create_user(email, password, **extra_fields)
+
+class ZzUsers(AbstractBaseUser, PermissionsMixin):
     email = models.CharField(unique=True, max_length=255)
     password = models.CharField(max_length=255)
     pseudo = models.CharField(unique=True, max_length=255, blank=True, null=True)
@@ -28,10 +50,16 @@ class ZzUsers(models.Model):
     country = models.CharField(max_length=255)
     hobby = models.JSONField(blank=True, null=True)
     pref = models.JSONField(blank=True, null=True)
-    online = models.IntegerField(blank=True, null=True)
+    online = models.BooleanField(blank=True, null=True)
+    
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    objects = ZzUsersManager()
+    
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['pseudo', 'nom', 'prenom', 'birthday','sex', 'religion', 'longitude', 'latitude', 'city', 'country']
 
     class Meta:
-        managed = False
         db_table = 'zz_users'
 
 class ZzFriendship(models.Model):
@@ -120,3 +148,9 @@ class ZzUsersMedias(models.Model):
 
 
 
+# Ma première impression est que le code est bien structuré et que
+# chacune des classes est bien définie avec ses métadonnées appropriées.
+# Les relations entre les tables sont bien définies et les champs sont clairement
+# définis. Cependant, il manque des commentaires pour expliquer le fonctionnement
+# de chaque modèle. Il serait utile d'ajouter des commentaires pour chaque
+# modèle expliquant ce qu'il représente et comment il est utilisé dans l'application.
