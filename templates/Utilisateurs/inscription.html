@@ -6,7 +6,7 @@
 
 	<body>
 	<div class="registration-form">
-		<form action="" method="post">
+		<form action="{% url 'Utilisateurs:inscription' %}" method="post">
 			{% csrf_token %}
 			<h2>Inscription</h2>
 			<div class="text-center" style="color: red;">
@@ -22,18 +22,22 @@
 					<input type="email" name="email" class="form-control" id="email" placeholder="Email" required="required">
 				</div>
 				<div class="form-group">
-					<label for="username">Pseudo</label>
-					<input type="text" name="username" class="form-control" id="username" placeholder="Pseudo" required="required">
+					<label for="pseudo">Pseudo</label>
+					<input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="Pseudo" required="required">
 				</div>
 				<div class="form-group">
 					<label for="password">Mot de passe</label>
-					<input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe" required="required">
+					<input type="password" name="password1" class="form-control" id="password" placeholder="Mot de passe" required="required">
 				</div><br>
 				<div class="form-group">
-					<button type="button" id="nextBtn" class="btn-custom btn-sm">Suivant</button>
+					<label for="password">confirmer votre mot de passe</label>
+					<input type="password" name="password2" class="form-control" id="password" placeholder="confirmer votre mot de passe" required="required">
+				</div><br>
+				<div class="form-group">
+					<button type="submit" id="nextBtn" class="btn btn-custom btn-sm">Suivant</button>
 				</div>
 			</div>
-			
+			{% comment "" %}
 			<!-- Partie cachée -->
 			<div id="additional-fields" class="hidden">
 				<div class="form-group">
@@ -76,6 +80,6 @@
 		</form><br>
 		<p class="text-center"><a href="{% url 'Utilisateurs:connexion' %}" style="color: #4a2173;">Déjà inscrit ? Connectez-vous</a></p>
 	</div>
-	
+	{% endcomment %}
 
 {% endblock content %}

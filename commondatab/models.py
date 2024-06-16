@@ -34,30 +34,30 @@ class ZzUsers(AbstractBaseUser, PermissionsMixin):
     email = models.CharField(unique=True, max_length=255)
     password = models.CharField(max_length=255)
     pseudo = models.CharField(unique=True, max_length=255, blank=True, null=True)
-    created_at = models.DateTimeField()
-    last_connect = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now_add=True)
     nom = models.CharField(max_length=255, blank=True, null=True)
     prenom = models.CharField(max_length=255, blank=True, null=True)
-    birthday = models.DateField()
+    birthday = models.DateField(auto_now_add=True)
     bio = models.TextField(blank=True, null=True)
     sex = models.CharField(max_length=22, blank=True, null=True)
     plage = models.CharField(max_length=2, blank=True, null=True)
     astre = models.CharField(max_length=10, blank=True, null=True)
     religion = models.CharField(max_length=10, blank=True, null=True)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    longitude = models.FloatField(default=6.321)
+    latitude = models.FloatField(default=2.981)
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     hobby = models.JSONField(blank=True, null=True)
     pref = models.JSONField(blank=True, null=True)
     online = models.BooleanField(blank=True, null=True)
-    
+    is_superuser=models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     objects = ZzUsersManager()
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['pseudo', 'nom', 'prenom', 'birthday','sex', 'religion', 'longitude', 'latitude', 'city', 'country']
+    REQUIRED_FIELDS = ['pseudo']
 
     class Meta:
         db_table = 'zz_users'
@@ -68,7 +68,7 @@ class ZzFriendship(models.Model):
     lik = models.PositiveIntegerField()
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_friendship'
         unique_together = (('liker', 'liked', 'lik'),)
 
@@ -76,21 +76,21 @@ class ZzDiscussions(models.Model):
     last_message_id = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_discussions'
 
 class ZzLangages(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_langages'
 
 class ZzHobbys(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_hobbys'
 
 class ZzMedias(models.Model):
@@ -98,7 +98,7 @@ class ZzMedias(models.Model):
     type = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_medias'
 
 class ZzMessages(models.Model):
@@ -110,7 +110,7 @@ class ZzMessages(models.Model):
     message = models.ForeignKey('self', models.DO_NOTHING)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_messages'
 
 class ZzUsersDiscussions(models.Model):
@@ -120,7 +120,7 @@ class ZzUsersDiscussions(models.Model):
     lastdate = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_users_discussions'
         unique_together = (('user', 'discussion'),)
 
@@ -130,7 +130,7 @@ class ZzUsersLangages(models.Model):
     type = models.PositiveIntegerField()
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_users_langages'
         unique_together = (('user', 'langage', 'type'),)
 
@@ -140,7 +140,7 @@ class ZzUsersMedias(models.Model):
     principal = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        
         db_table = 'zz_users_medias'
         unique_together = (('user', 'media'),)
 
@@ -148,9 +148,4 @@ class ZzUsersMedias(models.Model):
 
 
 
-# Ma première impression est que le code est bien structuré et que
-# chacune des classes est bien définie avec ses métadonnées appropriées.
-# Les relations entre les tables sont bien définies et les champs sont clairement
-# définis. Cependant, il manque des commentaires pour expliquer le fonctionnement
-# de chaque modèle. Il serait utile d'ajouter des commentaires pour chaque
-# modèle expliquant ce qu'il représente et comment il est utilisé dans l'application.
+
