@@ -18,10 +18,13 @@ Dans ce fichier README.md, écrivez toutes vos modifications avant un émminent 
     - Utilisation de cette variable d'environnement:
         1- Maintenant une fois que vous avez activer ça vous aller vous déplacer dans le Projet (cd PIL1_2324_11)
         2- Installer maintenant les choses suivantes:
-            `dotenv`: **pip install python-dotenv**
+            `python-dotenv`: **pip install python-dotenv**
             `daphne`: **pip install daphne**
             `channels`: **pip install channels**
             `mysqlclient`: **pip install mysqlclient**
+            `channel_redis`: **pip install channels_redis**
+            `djangorestframework`: **pip install djangorestframework**
+            `wsl`: **wsl --install**
         3- N'oublier pas de créer la variable d'environnement (.env) [Uniquement ceux qui veulent manipulater la base de données, si tu es en front-end alors tu peux laisser]
             Euh pour ça bon j'ai déjà dis dans le groupe... (^_^)
             C'est le truc de DB_NAME etc

@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Utilisateurs.urls')),
     path('messagerie/', include('messagerie.urls')),
-    #path('messagerie/', include('messagerie.routing.websocket_urlpatterns', namespace='messagerie')),
+    #path('ws/messagerie/', include('ws.messagerie.routing.websocket_urlpatterns', namespace='messagerie')),
 ]
 
 

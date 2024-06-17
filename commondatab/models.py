@@ -31,21 +31,21 @@ class ZzUsersManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class ZzUsers(AbstractBaseUser, PermissionsMixin):
-    email = models.CharField(unique=True, max_length=255)
+    email = models.EmailField(unique=True, max_length=255)
     password = models.CharField(max_length=255)
     pseudo = models.CharField(unique=True, max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now_add=True)
     nom = models.CharField(max_length=255, blank=True, null=True)
     prenom = models.CharField(max_length=255, blank=True, null=True)
-    birthday = models.DateField(auto_now_add=True)
+    birthday = models.DateField()
     bio = models.TextField(blank=True, null=True)
     sex = models.CharField(max_length=22, blank=True, null=True)
     plage = models.CharField(max_length=2, blank=True, null=True)
     astre = models.CharField(max_length=10, blank=True, null=True)
     religion = models.CharField(max_length=10, blank=True, null=True)
-    longitude = models.FloatField(default=6.321)
-    latitude = models.FloatField(default=2.981)
+    longitude = models.FloatField()#default=6.321
+    latitude = models.FloatField()#default=2.981
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     hobby = models.JSONField(blank=True, null=True)
@@ -73,6 +73,7 @@ class ZzFriendship(models.Model):
         unique_together = (('liker', 'liked', 'lik'),)
 
 class ZzDiscussions(models.Model):
+    room_name = models.CharField(unique=True, max_length=255, null=True)
     last_message_id = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
@@ -104,13 +105,12 @@ class ZzMedias(models.Model):
 class ZzMessages(models.Model):
     content = models.TextField()
     media = models.ForeignKey(ZzMedias, models.SET_NULL, blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    user = models.ForeignKey('ZzUsers', models.DO_NOTHING)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)#blank=True, null=True
+    user = models.ForeignKey('ZzUsers', models.CASCADE)
     discussion = models.ForeignKey(ZzDiscussions, models.CASCADE)
-    message = models.ForeignKey('self', models.DO_NOTHING)
+    #message = models.ForeignKey('self', models.CASCADE)
 
     class Meta:
-        
         db_table = 'zz_messages'
 
 class ZzUsersDiscussions(models.Model):

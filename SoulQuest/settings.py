@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'daphne',
-    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +42,9 @@ INSTALLED_APPS = [
     'commondatab',
     'Utilisateurs',
     'compte',
-    'messagerie'
+    'channels',
+    'messagerie',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,21 @@ TEMPLATES = [
 #WSGI_APPLICATION = 'SoulQuest.wsgi.application'
 
 ASGI_APPLICATION = 'SoulQuest.asgi.application'
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
 AUTH_USER_MODEL = 'commondatab.ZzUsers'
 
 # Database
